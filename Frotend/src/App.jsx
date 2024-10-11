@@ -117,7 +117,7 @@ const App = () => {
                   checked={task.completed}
                   onChange={() => handleChecked(task._id)}
                 />
-                <span className={task.completed ? 'flex-grow line-through' : 'flex-grow'}>
+                <span className={task.completed ? 'flex-grow line-through decoration-red-600' : 'flex-grow'}>
                   {task.task}
                 </span>
                 <div className='flex'>
