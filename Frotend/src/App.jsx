@@ -18,6 +18,7 @@ const App = () => {
           "https://task-manager-vh8t.onrender.com/api/tasks"
         );
         setTasks(res.data);
+        console.log(res.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);
       } finally {
@@ -39,6 +40,7 @@ const App = () => {
         );
         setTasks((prevTasks) => [...prevTasks, res.data]);
         setTask("");
+        fetchTasks();
       } catch (error) {
         console.error("Error adding task:", error);
       }
@@ -59,6 +61,7 @@ const App = () => {
           item._id === id ? { ...item, task: res.data.task } : item
         )
       );
+      fetchTasks;
     } catch (error) {
       console.error("Error editing task:", error);
     } finally {
