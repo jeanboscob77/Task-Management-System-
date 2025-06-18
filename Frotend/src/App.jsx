@@ -11,20 +11,21 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState(null);
 
+  const fetchTasks = async () => {
+    try {
+      const res = await axios.get(
+        "https://task-manager-vh8t.onrender.com/api/tasks"
+      );
+      setTasks(res.data);
+      console.log(res.data);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const res = await axios.get(
-          "https://task-manager-vh8t.onrender.com/api/tasks"
-        );
-        setTasks(res.data);
-        console.log(res.data);
-      } catch (error) {
-        console.error("Error fetching tasks:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchTasks();
   }, []);
 
